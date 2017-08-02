@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>筑家易家装CRM系统</title>
+    <meta name="keywords" content="筑家易家装CRM系统">
+    <meta name="description" content="筑家易家装CRM系统">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css" rel="stylesheet">
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--导航-->
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <!--滚动条-->
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!--经典模块化前端框架-->
+    <script src="js/plugins/layer/layer.min.js"></script>
+    <!-- 自定义js-->
+    <script src="js/hplus.min.js"></script>
+    <script src="js/contabs.min.js"></script>
+
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg">
+
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span><img alt="image" class="img-circle" src="img/girl.png" width="64"/></span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                               <span class="block m-t-xs"><strong class="font-bold">admin</strong><b class="caret"></b></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="修改密码.html">修改密码</a></li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">安全退出</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element"><img src="img/logo.png" width="50px" /></div>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-home"></i><span class="nav-label">主页</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fa fa fa-gear"></i>
+                            <span class="nav-label">客户管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li class="active"><a href="客户管理（家装）.html">客户管理（家装）</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="row J_mainContent" id="content-main">
+
+                <!--子页面-->
+                <style>
+                    .pull-right .btn {
+                        position: relative;
+                        top: -6px;
+                        margin-bottom: 0
+                    }
+
+                    .z-bg-grey {
+                        background-color: rgba(242, 242, 242, 1);
+                    }
+
+                    .z-minheight-217 {
+                        min-height: 217px;
+                    }
+
+                    .z-padding-10 {
+                        box-sizing: border-box;
+                        padding: 10px;
+                    }
+
+                    .z-titlt-img {
+                        width: 60px;
+                        height: 60px;
+                    }
+
+                    .z-peopleImg {
+                        width: 100%;
+                        height: 75px;
+                    }
+
+                    .left-model {
+                        float: left;
+                        width: 100px;
+                        text-align: center;
+                    }
+
+                    .right-model {
+                        float: left;
+                        width: calc(100% - 100px);
+                        width: -webkit-calc(100% - 100px);
+                    }
+
+                    .right-model p:nth-of-type(1) span:nth-last-child(1) {
+                        float: right;
+                    }
+
+                    .col-sm-12 p:nth-of-type(1) {
+                        margin-top: 10px;
+                        clear: both;
+                    }
+
+                    .z-fl-left {
+                        float: left;
+                    }
+
+                    .z-fl-right {
+                        float: right;
+                    }
+
+                    .z-margin-right {
+                        margin-right: 10px;
+                    }
+
+                    .z-bt-1 {
+                        border-bottom: 1px solid #e5e6e7;
+                    }
+
+                    .z-padding-10 {
+                        box-sizing: border-box;
+                        padding: 10px;
+                    }
+
+                    .z-record-container {
+                        width: 100%;
+                        position: relative;
+                        padding: 0 10px 0 20px;
+                    }
+
+                    .z-marginbttom-10 {
+                        margin-bottom: 10px;
+                    }
+
+                    .z-circle {
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background: #1ab394;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    .z-line {
+                        width: 1px;
+                        height: 100%;
+                        background: #1ab394;
+                        position: absolute;
+                        top: 10px;
+                        left: 5px;
+                    }
+
+                    .z-green {
+                        color: #1ab394;
+                    }
+
+                    .right-model p:nth-of-type(1) span:nth-of-type(1) {
+                        margin-right: 20px;
+                    }
+
+                    .z-grey-bg {
+                        background-color: grey;
+                        color: #fff;
+                    }
+                </style>
+
+                <div class="wrapper wrapper-content">
+                    <div class="row wrapper page-heading">
+                        <div class="col-sm-12">
+                            <a href="">客户管理</a> > <a href="">客户管理（家装）</a> > 客户详情
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <div class="pull-right">
+                                        <a href="" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"></i> 编辑</a>
+                                        <a href="" class="btn btn-primary btn-sm"><i class="fa fa-hand-o-right"></i> 分配</a>
+                                    </div>
+                                    <h5>基本信息</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col-md-8 col-ld-8 col-sm-8 z-padding-10">
+                                            <div class="col-sm-12 z-bg-grey z-padding-10 z-minheight-217">
+                                                <div class="z-peopleImg">
+                                                    <div class="left-model">
+                                                        <img alt="image" class="img-circle m-t-xs z-titlt-img" src="img/unknow.png">
+                                                    </div>
+                                                    <div class="right-model">
+                                                        <p><span>倩倩</span><span></span>26岁<span>经纪通APP</span></p>
+                                                        <h4 class="z-green">18248467970</h4>
+                                                    </div>
+                                                </div>
+                                                <p><span>微信号　：</span><span class="z-grey">xiaovsqian</span></p>
+                                                <p><span>email&nbsp;　：</span><span class="z-grey">qianqian@163.com</span></p>
+                                                <p><span>通信地址：</span><span class="z-grey">杭州市文一西路99号</span></p>
+                                                <p><span>工作单位：</span><span class="z-grey">杭州筑家易网络科技有限公司</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-ld-4 col-sm-4 z-padding-10">
+                                            <div class="col-sm-12 z-bg-grey z-padding-10 z-minheight-217">
+                                                <h4 class="z-green z-margin-10">客户跟进人</h4>
+                                                <p><span>报备人：</span><span class="z-grey">倩倩11</span></p>
+                                                <p><span>客服部：</span><span class="z-grey">倩倩11</span></p>
+                                                <p><span>销售部：</span><span class="z-grey">倩倩11</span></p>
+                                                <p><span>设计部：</span><span class="z-grey">倩倩11</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-ld-12 col-sm-12">
+                                            <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                    <p><span>来访途径：</span><span class="z-grey"></span></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
+                                                    <p><span>家庭结构：</span><span class="z-grey"></span></p>
+                                                </div>
+                                                <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
+                                                    <p><span>家里宝贝：</span><span class="z-grey"></span></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
+                                                    <p><span>交房时间：</span><span class="z-grey"></span></p>
+                                                </div>
+                                                <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
+                                                    <p><span>入住时间：</span><span class="z-grey"></span></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                    <p><span>居住区域：</span><span class="z-grey">浙江省杭州市上城区</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                    <p><span>新居地址：</span><span class="z-grey">浙江省杭州市上城区</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
+                                                    <p><span>装修预算：</span><span class="z-green">12万元</span></p>
+                                                </div>
+                                                <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
+                                                    <p><span>期望量房时间：</span><span class="z-green">2016-09-21  15:30</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
+                                                    <p><span>装修类型：</span><span class="z-grey"></span></p>
+                                                </div>
+                                                <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
+                                                    <p><span>房屋面积：</span><span class="z-grey"></span></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
+                                                    <p><span>装修风格：</span><span class="z-grey"></span></p>
+                                                </div>
+                                                <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
+                                                    <p><span>指定装修公司：</span><span class="z-grey"></span></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
+                                                    <p><span>装修要求：</span><span class="z-grey"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>跟进记录</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div data_button_id="67" class="col-md-12 col-ld-12 col-sm-12 z-bt-1 z-padbt-10">
+                                            <div class="form-group">
+                                                <textarea class="form-control z-record-text" rows="3" maxlength="200" placeholder="请输入跟进记录"></textarea>
+                                            </div>
+                                            <div class="col-md-12 col-ld-12 col-sm-12">
+                                                <div class="z-fl-left customer-intention">
+                                                    <span><span class="z-red">*</span>客户意向：</span>
+                                                    <select class="intention" name="intention">
+                                                        <option value="1">无意向</option>
+                                                        <option value="2" selected="selected">有意向</option>
+                                                        <option value="0">待沟通</option>
+                                                    </select>
+                                                </div>
+                                                <button data_button_id="67" id="record-save-btn" type="button" class="btn  btn-primary z-fl-right btn-sm" onclick="saveRecord()">保存</button>
+                                                <button type="button" class="btn  btn-white z-fl-right z-margin-right btn-sm  z-clear-btn">清空</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-ld-12 col-sm-12 z-padding-10 z-record-liat">
+
+                                            <div class="z-record-container z-marginbttom-10">
+                                                <div class="z-circle"></div>
+                                                <div class="z-line"></div>
+                                                <div><span class="z-margin-right">2017-06-21 10:04</span><span>储华英</span></div>
+                                                <div class="z-margintop-10">1.说是一个月以后再联系，现在装修也才刚刚开始目测一个月的样子弄好了，现在不愿意多说</div>
+                                            </div>
+                                            <div class="z-record-container z-marginbttom-10">
+                                                <div class="z-circle"></div>
+                                                <div class="z-line"></div>
+                                                <div><span class="z-margin-right">2017-06-21 10:04</span><span>储华英</span></div>
+                                                <div class="z-margintop-10">1.说是一个月以后再联系，现在装修也才刚刚开始目测一个月的样子弄好了，现在不愿意多说</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>客户状态</h5>
+                                </div>
+                                <div class="ibox-content">
+
+                                    <div id="vertical-timeline" class="vertical-container dark-timeline">
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon navy-bg">
+                                                <i class="fa fa-check"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h4>确认意向</h4>
+                                                <p><span class="z-margin-right">2016-09-21 12:34</span>操作人</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon blue-bg">
+                                                <i class="fa fa-file-text"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h2>给张三发送文档</h2>
+                                                <p>发送上年度《销售业绩报告》</p>
+                                                <a href="#" class="btn btn-sm btn-success"> 下载文档</a>
+                                                <span class="vertical-date">
+                                        今天 <br>
+                                        <small>2月3日</small>
+                                    </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon lazur-bg">
+                                                <i class="fa fa-coffee"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h2>喝咖啡休息</h2>
+                                                <p>喝咖啡啦，啦啦啦~~</p>
+                                                <a href="#" class="btn btn-sm btn-info">更多</a>
+                                                <span class="vertical-date"> 昨天 <br><small>2月2日</small></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon yellow-bg">
+                                                <i class="fa fa-phone"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h2>给李四打电话</h2>
+                                                <p>给李四打电话分配本月工作任务</p>
+                                                <span class="vertical-date">昨天 <br><small>2月2日</small></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon lazur-bg">
+                                                <i class="fa fa-user-md"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h2>公司年会</h2>
+                                                <p>发年终奖啦，啦啦啦~~</p>
+                                                <span class="vertical-date">前天 <br><small>2月1日</small></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!--/子页面-->
+            </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+
+</body>
+
+</html>
