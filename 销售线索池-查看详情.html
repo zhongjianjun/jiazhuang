@@ -151,21 +151,24 @@
             background-color: grey;
             color: #fff;
         }
+
+        .p-l {
+            padding-left: 10px;
+        }
     </style>
 
     <div class="wrapper wrapper-content">
         <div class="row wrapper page-heading">
             <div class="col-sm-12">
-                <a href="客户管理（家装）.html">客户管理（家装）</a> > 客户详情
+                <a href="销售线索池.html">销售线索池</a> > 客户详情
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <div class="pull-right">
-                            <a href="" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"></i> 编辑</a>
-                            <a href="" class="btn btn-primary btn-sm"><i class="fa fa-hand-o-right"></i> 分配</a>
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal5"><i class="fa fa-pencil-square-o"></i> 编辑</button>
                         </div>
                         <h5>基本信息</h5>
                     </div>
@@ -200,23 +203,20 @@
                             <div class="col-md-12 col-ld-12 col-sm-12">
                                 <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
                                     <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
-                                        <p><span>来访途径：</span><span class="z-grey"></span></p>
+                                        <p><span>来访途径：</span><span class="z-grey">营销活动</span></p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
                                     <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
-                                        <p><span>家庭结构：</span><span class="z-grey"></span></p>
-                                    </div>
-                                    <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
-                                        <p><span>家里宝贝：</span><span class="z-grey"></span></p>
+                                        <p><span>家庭结构：</span><span class="z-grey">三口之家</span></p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
                                     <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
-                                        <p><span>交房时间：</span><span class="z-grey"></span></p>
+                                        <p><span>交房时间：</span><span class="z-grey">2016-09-21</span></p>
                                     </div>
                                     <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
-                                        <p><span>入住时间：</span><span class="z-grey"></span></p>
+                                        <p><span>入住时间：</span><span class="z-grey">2016-09-21</span></p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
@@ -226,7 +226,7 @@
                                 </div>
                                 <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
                                     <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
-                                        <p><span>新居地址：</span><span class="z-grey">浙江省杭州市上城区</span></p>
+                                        <p><span>新居地址：</span><span class="z-grey">杭州市-余杭区-余杭街道-998号</span></p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
@@ -239,29 +239,27 @@
                                 </div>
                                 <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
                                     <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
-                                        <p><span>装修类型：</span><span class="z-grey"></span></p>
+                                        <p><span>装修类型：</span><span class="z-grey">精装房</span></p>
                                     </div>
                                     <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
-                                        <p><span>房屋面积：</span><span class="z-grey"></span></p>
+                                        <p><span>房屋面积：</span><span class="z-grey">80-100㎡</span></p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
                                     <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
-                                        <p><span>装修风格：</span><span class="z-grey"></span></p>
+                                        <p><span>装修风格：</span><span class="z-grey">欧式  美式</span></p>
                                     </div>
                                     <div class="col-md-6 col-ld-6 col-sm-6 z-padding-0">
-                                        <p><span>指定装修公司：</span><span class="z-grey"></span></p>
+                                        <p><span>指定装修公司：</span><span class="z-grey">九鼎装饰</span></p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
                                     <div class="col-md-12 col-ld-12 col-sm-12 z-padding-0">
-                                        <p><span>装修要求：</span><span class="z-grey"></span></p>
+                                        <p><span>装修要求：</span><span class="z-grey">要求要求要求</span></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <div class="ibox float-e-margins">
@@ -276,12 +274,23 @@
                                 </div>
                                 <div class="col-md-12 col-ld-12 col-sm-12">
                                     <div class="z-fl-left customer-intention">
-                                        <span><span class="z-red">*</span>客户意向：</span>
-                                        <select class="intention" name="intention">
-                                                        <option value="1">无意向</option>
-                                                        <option value="2" selected="selected">有意向</option>
-                                                        <option value="0">待沟通</option>
-                                                    </select>
+                                        <span><span class="z-red">*</span>客户类型：</span>
+                                        <select class="intention">
+                                            <option value="">请选择</option>
+                                            <option value="">家装</option>
+                                            <option value="">家居</option>
+                                        </select>
+                                        <span class="p-l"><span class="z-red">*</span>客户级别：</span>
+                                        <select class="intention">
+                                            <option value="">请选择</option>
+                                            <option value="">A</option>
+                                            <option value="">B</option>
+                                            <option value="">C</option>
+                                        </select>
+                                        <span class="p-l">接待门店：</span>
+                                        <select class="intention">
+                                            <option value="">海创园品牌馆</option>
+                                        </select>
                                     </div>
                                     <button data_button_id="67" id="record-save-btn" type="button" class="btn  btn-primary z-fl-right btn-sm" onclick="saveRecord()">保存</button>
                                     <button type="button" class="btn  btn-white z-fl-right z-margin-right btn-sm  z-clear-btn">清空</button>
@@ -308,87 +317,128 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>客户状态</h5>
-                    </div>
-                    <div class="ibox-content">
+        </div>
+    </div>
 
-                        <div id="vertical-timeline" class="vertical-container dark-timeline">
-                            <div class="vertical-timeline-block">
-                                <div class="vertical-timeline-icon navy-bg">
-                                    <i class="fa fa-check"></i>
+    <!--基本信息编辑弹框-->
+    <div class="modal inmodal fade tk-box" id="myModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">基本信息编辑</h4>
+                </div>
+                <form id="commentForm">
+                    <div class="modal-body">
+
+                        <div class="tabs-container">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#tab-1" aria-expanded="true"> 客户信息</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#tab-2" aria-expanded="false">装修信息</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="tab-1" class="tab-pane active">
+                                    <div class="panel-body">
+
+                                        <div class="form-horizontal">
+                                            <div class="form-group col-sm-6">
+                                                <label class="col-sm-4 control-label"><span class="text-danger">*</span>手机号码：</label>
+                                                <div class="col-sm-8">
+                                                    <input name="phone" class="form-control" type="text" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label class="col-sm-4 control-label"><span class="text-danger">*</span>客户姓名：</label>
+                                                <div class="col-sm-8">
+                                                    <input name="username" class="form-control" type="text" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
                                 </div>
+                                <div id="tab-2" class="tab-pane">
+                                    <div class="panel-body">
 
-                                <div class="vertical-timeline-content">
-                                    <h4>确认意向</h4>
-                                    <p><span class="z-margin-right">2016-09-21 12:34</span>操作人</p>
-                                </div>
-                            </div>
-
-                            <div class="vertical-timeline-block">
-                                <div class="vertical-timeline-icon blue-bg">
-                                    <i class="fa fa-file-text"></i>
-                                </div>
-
-                                <div class="vertical-timeline-content">
-                                    <h2>给张三发送文档</h2>
-                                    <p>发送上年度《销售业绩报告》</p>
-                                    <a href="#" class="btn btn-sm btn-success"> 下载文档</a>
-                                    <span class="vertical-date">
-                                        今天 <br>
-                                        <small>2月3日</small>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="vertical-timeline-block">
-                                <div class="vertical-timeline-icon lazur-bg">
-                                    <i class="fa fa-coffee"></i>
-                                </div>
-
-                                <div class="vertical-timeline-content">
-                                    <h2>喝咖啡休息</h2>
-                                    <p>喝咖啡啦，啦啦啦~~</p>
-                                    <a href="#" class="btn btn-sm btn-info">更多</a>
-                                    <span class="vertical-date"> 昨天 <br><small>2月2日</small></span>
-                                </div>
-                            </div>
-
-                            <div class="vertical-timeline-block">
-                                <div class="vertical-timeline-icon yellow-bg">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-
-                                <div class="vertical-timeline-content">
-                                    <h2>给李四打电话</h2>
-                                    <p>给李四打电话分配本月工作任务</p>
-                                    <span class="vertical-date">昨天 <br><small>2月2日</small></span>
-                                </div>
-                            </div>
-
-                            <div class="vertical-timeline-block">
-                                <div class="vertical-timeline-icon lazur-bg">
-                                    <i class="fa fa-user-md"></i>
-                                </div>
-
-                                <div class="vertical-timeline-content">
-                                    <h2>公司年会</h2>
-                                    <p>发年终奖啦，啦啦啦~~</p>
-                                    <span class="vertical-date">前天 <br><small>2月1日</small></span>
+                                        <strong>移动设备优先</strong>
+                                        <p>在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3 中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增加一些可选的针对移动设备的样式，而是直接融合进了框架的内核中。也就是说，Bootstrap
+                                            是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">保存</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <!--/基本信息编辑弹框-->
+
+
+    <!-- jQuery Validation plugin javascript-->
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="js/plugins/validate/messages_zh.min.js"></script>
+    <script src="js/validate.js"></script>
+    <script>
+        //清空操作
+        $(".z-clear-btn").click(function () {
+            $(".z-record-text").val("");
+        })
+        //验证
+        $().ready(function () {
+
+            // validate signup form on keyup and submit
+            var icon = "<i class='fa fa-times-circle'></i> ";
+            $("#commentForm").validate({
+                rules: {
+                    phone: "required",
+                    username: "required",
+                },
+                messages: {
+                    phone: icon + "请输入手机号",
+                    username: icon + "请输入客户姓名",
+                },
+                submitHandler: function () {
+
+                    // $.ajax({
+                    //     type        :    'post',
+                    //     url         :    "add",
+                    //     dataType    :    'json',
+                    //     async       :    false,
+                    //     cache       :    false,
+                    //     processData :    false,  // 告诉jQuery不要去处理发送的数据
+                    //     contentType :    false,  // 告诉jQuery不要去设置Content-Type请求头
+                    //     data        :    new FormData($(".area-add-form")[0]),
+                    //     success     :    function(msg){
+                    //         if (msg.code!= 20000) {
+                    //             alert(msg.message);
+                    //         }else{
+                    //             alert(msg.message);
+                    //             window.location.href='index';
+                    //         }
+                    //     }
+                    // });
+
+                }
+            });
+
+
+        });
+    </script>
 
     <!--/子页面-->
 
 
 </body>
+
 </html>

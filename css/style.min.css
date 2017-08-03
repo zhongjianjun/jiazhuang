@@ -1354,7 +1354,12 @@ body.skin-3{background:#3e2c42}
     .bs-glyphicons li{width:12.5%;font-size:12px}
 }
 
-/**/
+/*分页*/
 .page-num li{list-style: none;float: left;border:1px solid #e7eaec;margin-left:4px;}
 .page-num a,.page-num span{padding:6px 12px;display: block;}
 .page-num .active{border-color:#1ab394;color:#1ab394;}
+
+/*弹框*/
+.tk-box .modal-header{padding: 20px 15px;}
+.tk-box .modal-body{background: none;}
+.tk-box .modal-title{font-size: 16px;text-align: left}

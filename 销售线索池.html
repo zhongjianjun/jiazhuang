@@ -36,18 +36,9 @@
 
 <body class="fixed-sidebar full-height-layout gray-bg">
 
-
     <!--子页面-->
     <style>
-        .form-style-t {}
 
-        .form-style-t .control-label {
-            width: 11%
-        }
-
-        .form-style-t .control-r {
-            width: 22%
-        }
     </style>
     <div class="wrapper wrapper-content">
         <div class="row">
@@ -55,75 +46,52 @@
 
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5><span>客户管理</span> > 客户管理（家装）</h5>
+                        <h5><span>客户管理</span> > 销售线索池</h5>
                     </div>
                     <div class="ibox-content">
                         <form action="" id="commentForm">
 
                             <div class="form-group form-horizontal form-style form-style-t">
                                 <div class="row m-b">
-                                    <label class="col-sm-2 control-label">客户姓名</label>
+                                    <label class="col-sm-1 control-label">城市站</label>
                                     <div class="col-sm-2 no-padding control-r">
-                                        <input type="text" placeholder="请输入姓名" class="form-control">
-                                    </div>
-                                    <label class="col-sm-2 control-label">客户手机</label>
-                                    <div class="col-sm-2 no-padding control-r">
-                                        <input type="text" placeholder="请输入手机" class="form-control">
-                                    </div>
-                                    <label class="col-sm-2 control-label">客户来源</label>
-                                    <div class="col-sm-2 i-checks control-r">
                                         <select class="form-control">
-                                                        <option value="">微信公众号</option>
-                                                        <option value="">筑家易官网</option>
-                                                    </select>
+                                            <option value="">杭州</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-1 control-label">客户来源</label>
+                                    <div class="col-sm-2 no-padding control-r">
+                                        <select class="form-control">
+                                            <option value="">微信公众号</option>
+                                            <option value="">筑家易官网</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-1 control-label">客户级别</label>
+                                    <div class="col-sm-2 no-padding control-r">
+                                        <select class="form-control">
+                                            <option value="">请选择</option>
+                                            <option value="">A</option>
+                                            <option value="">B</option>
+                                            <option value="">C</option>
+                                            <option value="">D</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row m-b">
-                                    <label class="col-sm-2 control-label">客户类型</label>
+                                    <label class="col-sm-1 control-label">客户姓名</label>
                                     <div class="col-sm-2 no-padding control-r">
-                                        <select class="form-control">
-                                                        <option value="">请选择</option>
-                                                        <option value="">家装</option>
-                                                        <option value="">家居</option>
-                                                    </select>
+                                        <input type="text" placeholder="请输入姓名" class="form-control">
                                     </div>
-                                    <label class="col-sm-2 control-label">客户状态</label>
+                                    <label class="col-sm-1 control-label">客户手机</label>
                                     <div class="col-sm-2 no-padding control-r">
-                                        <select class="form-control">
-                                                        <option value="">已受理</option>
-                                                        <option value="">确认意向</option>
-                                                        <option value="">支付定金</option>
-                                                        <option value="">测量出图</option>
-                                                        <option value="">签约</option>
-                                                    </select>
+                                        <input type="text" placeholder="请输入手机" class="form-control">
                                     </div>
-                                    <label class="col-sm-2 control-label">最近跟进时间</label>
-                                    <div class="col-sm-2 i-checks control-r">
-                                        <div class="input-daterange input-group">
-                                            <input type="text" class="input-sm form-control layer-date" />
-                                            <span class="input-group-addon">到</span>
-                                            <input type="text" class="input-sm form-control layer-date" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-2 control-label">客户跟进人</label>
-                                    <div class="col-sm-2 no-padding form-inline control-r">
-                                        <select class="form-control">
-                                                        <option value="">部门</option>
-                                                    </select>
-                                        <select class="form-control">
-                                                        <option value="">员工姓名</option>
-                                                    </select>
-                                    </div>
-                                    <label class="col-sm-2 control-label">城市站</label>
+                                    <label class="col-sm-1 control-label">跟进客服</label>
                                     <div class="col-sm-2 no-padding control-r">
-                                        <select class="form-control">
-                                                        <option value="">杭州</option>
-                                                    </select>
+                                        <input type="text" placeholder="" class="form-control">
                                     </div>
-                                    <div class="col-sm-2">
-                                        <a href="" class="btn btn-primary">搜索</a>
+                                    <div class="col-sm-1">
+                                        <a href="" class="btn btn-primary">保存</a>
                                     </div>
                                 </div>
                             </div>
@@ -135,13 +103,14 @@
                                 <tr class="tb-title">
                                     <th class="text-center">城市站</th>
                                     <th class="text-center">来源</th>
-                                    <th class="text-center">客户类型</th>
-                                    <th class="text-center">姓名</th>
+                                    <th class="text-center">报备人</th>
+                                    <th class="text-center">提交申请时间</th>
+                                    <th class="text-center">客户姓名</th>
                                     <th class="text-center">手机号码</th>
-                                    <th class="text-center">受理时间</th>
-                                    <th class="text-center">最近跟进时间</th>
-                                    <th class="text-center">最新跟进人</th>
-                                    <th class="text-center">客户状态</th>
+                                    <th class="text-center">面积</th>
+                                    <th class="text-center">地址</th>
+                                    <th class="text-center">跟进客服</th>
+                                    <th class="text-center">客户级别</th>
                                     <th class="text-center">操作</th>
                                 </tr>
                             </thead>
@@ -149,15 +118,48 @@
                                 <tr align="center">
                                     <td>杭州</td>
                                     <td>微信公众号</td>
-                                    <td>家装</td>
+                                    <td>倩倩</td>
+                                    <td>2016-11-12 18:30</td>
                                     <td>倩倩</td>
                                     <td>15757234567</td>
-                                    <td>2016-11-12 18:30</td>
-                                    <td>2016-11-12 18:30</td>
-                                    <td>姓名</td>
-                                    <td>确认意向</td>
+                                    <td>87㎡</td>
+                                    <td>余杭区大华海派</td>
+                                    <td>张三</td>
+                                    <td>B</td>
                                     <td>
-                                        <a href="客户管理（家装）-客户详情.html" class="btn btn-outline btn-default">查看</a>
+                                        <a href="销售线索池-查看详情.html" class="btn btn-outline btn-default">查看</a>
+                                        <button type="button" class="btn btn-outline btn-default" data-toggle="modal" data-target="#myModal5">分配</button>
+                                    </td>
+                                </tr>
+                                <tr align="center">
+                                    <td>杭州</td>
+                                    <td>微信公众号</td>
+                                    <td>倩倩</td>
+                                    <td>2016-11-12 18:30</td>
+                                    <td>倩倩</td>
+                                    <td>15757234567</td>
+                                    <td>87㎡</td>
+                                    <td>余杭区大华海派</td>
+                                    <td>张三</td>
+                                    <td>B</td>
+                                    <td>
+                                        <a href="销售线索池-查看详情.html" class="btn btn-outline btn-default">查看</a>
+                                        <button type="button" class="btn btn-outline btn-default" data-toggle="modal" data-target="#myModal5">分配</button>
+                                    </td>
+                                </tr>
+                                <tr align="center">
+                                    <td>杭州</td>
+                                    <td>微信公众号</td>
+                                    <td>倩倩</td>
+                                    <td>2016-11-12 18:30</td>
+                                    <td>倩倩</td>
+                                    <td>15757234567</td>
+                                    <td>87㎡</td>
+                                    <td>余杭区大华海派</td>
+                                    <td>张三</td>
+                                    <td>B</td>
+                                    <td>
+                                        <a href="销售线索池-查看详情.html" class="btn btn-outline btn-default">查看</a>
                                         <button type="button" class="btn btn-outline btn-default" data-toggle="modal" data-target="#myModal5">分配</button>
                                     </td>
                                 </tr>
@@ -234,13 +236,10 @@
                 format: "YYYY-MM-DD hh:mm:ss"
             });
         });
-
     </script>
 
 
     <!--/子页面-->
 
-
 </body>
-
 </html>

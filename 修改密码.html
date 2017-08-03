@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +16,14 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css" rel="stylesheet">
-<style type="text/css">
-.has-success .text-danger{color: #1ab394;}
-</style>
+    <style type="text/css">
+        .has-success .text-danger {
+            color: #1ab394;
+        }
+    </style>
 
 </head>
+
 <body class="gray-bg">
 
     <div class="wrapper wrapper-content">
@@ -71,75 +75,73 @@
     <script src="js/plugins/validate/jquery.validate.min.js"></script>
     <script src="js/plugins/validate/messages_zh.min.js"></script>
 
-<script type="text/javascript">
-    
-    
-//以下为修改jQuery Validation插件兼容Bootstrap的方法，没有直接写在插件中是为了便于插件升级
-$.validator.setDefaults({
-    highlight: function (element) {
-        $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-    },
-    success: function (element) {
-        element.closest('.form-group').removeClass('has-error').addClass('has-success');
-    },
-    errorElement: "span",
-    errorPlacement: function (error, element) {
-        if (element.is(":radio") || element.is(":checkbox")) {
-            error.appendTo(element.parent().parent().parent());
-        } else {
-            error.appendTo(element.parent());
-        }
-    },
-    errorClass: "help-block m-b-none",
-    validClass: "help-block m-b-none"
-
-});
-
-//以下为官方示例
-$().ready(function () {
-    // validate signup form on keyup and submit
-    var icon = "<i class='fa fa-times-circle'></i> ";
-    $("#commentForm").validate({
-        rules: {
-            original_password: {
-                required: true,
-                minlength: 5
+    <script type="text/javascript">
+        //以下为修改jQuery Validation插件兼容Bootstrap的方法，没有直接写在插件中是为了便于插件升级
+        $.validator.setDefaults({
+            highlight: function (element) {
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
             },
-            password: {
-                required: true,
-                minlength: 5
+            success: function (element) {
+                element.closest('.form-group').removeClass('has-error').addClass('has-success');
             },
-            confirm_password: {
-                required: true,
-                minlength: 5,
-                equalTo: "#password"
+            errorElement: "span",
+            errorPlacement: function (error, element) {
+                if (element.is(":radio") || element.is(":checkbox")) {
+                    error.appendTo(element.parent().parent().parent());
+                } else {
+                    error.appendTo(element.parent());
+                }
+            },
+            errorClass: "help-block m-b-none",
+            validClass: "help-block m-b-none"
+
+        });
+
+        //以下为官方示例
+        $().ready(function () {
+            // validate signup form on keyup and submit
+            var icon = "<i class='fa fa-times-circle'></i> ";
+            $("#commentForm").validate({
+                rules: {
+                    original_password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    confirm_password: {
+                        required: true,
+                        minlength: 5,
+                        equalTo: "#password"
+                    }
+                },
+                messages: {
+                    original_password: {
+                        required: icon + "请输入您的原密码",
+                        minlength: icon + "密码必须5个字符以上"
+                    },
+                    password: {
+                        required: icon + "请输入您的新密码",
+                        minlength: icon + "密码必须5个字符以上"
+                    },
+                    confirm_password: {
+                        required: icon + "请再次输入新密码",
+                        minlength: icon + "密码必须5个字符以上",
+                        equalTo: icon + "两次输入的密码不一致"
+                    }
+                }
+            });
+        });
+        $.validator.setDefaults({
+            submitHandler: function () {
+                alert("提交事件!");
             }
-        },
-        messages: {
-            original_password: {
-                required: icon + "请输入您的原密码",
-                minlength: icon + "密码必须5个字符以上"
-            },
-            password: {
-                required: icon + "请输入您的新密码",
-                minlength: icon + "密码必须5个字符以上"
-            },
-            confirm_password: {
-                required: icon + "请再次输入新密码",
-                minlength: icon + "密码必须5个字符以上",
-                equalTo: icon + "两次输入的密码不一致"
-            }
-        }
-    });
-});
-$.validator.setDefaults({
-    submitHandler: function() {
-      alert("提交事件!");
-    }
-});
-
-</script>
+        });
+    </script>
 
 
 </body>
+
 </html>
