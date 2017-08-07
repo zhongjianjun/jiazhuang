@@ -39,6 +39,7 @@
 
     <!--子页面-->
     <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/plugins/blueimp/css/blueimp-gallery.min.css" rel="stylesheet">
     <style>
         .pull-right .btn {
             position: relative;
@@ -152,6 +153,191 @@
             background-color: grey;
             color: #fff;
         }
+
+        .fancybox img {
+            width: 49%
+        }
+        /*设计出图*/
+
+        .z-design-bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+        }
+
+        .z-upload-bg {
+            width: 70%;
+            height: 500px;
+            overflow: scroll;
+            margin: 100px auto 0 auto;
+            background: #fff;
+            border-radius: 6px;
+            padding: 8px;
+            position: relative;
+        }
+
+        .z-upload-bg .fa-times {
+            padding: 5px;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+        }
+
+        .z-photo-album {
+            margin-top: 10px;
+            padding: 0;
+            clear: both;
+        }
+
+        .z-albun-tool {
+            width: 100%;
+            height: 50px;
+            vertical-align: middle;
+            padding: 10px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .z-albun-name {
+            width: 140px;
+            height: 25px;
+        }
+
+        .z-albun-name[disabled="disabled"] {
+            border: none;
+            background: #fff;
+        }
+
+        .z-albun-tool .fa {
+            padding: 5px;
+            margin-left: 5px;
+            float: right;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .z-albun-tool label {
+            float: right;
+        }
+
+        .z-pic-list .col-ld-2 {
+            height: 100px;
+            position: relative;
+            margin-bottom: 10px;
+            /*padding: 10%;*/
+        }
+
+        .z-pic-list .col-ld-2 .z-upload-btn {
+            border: 1px solid #ccc;
+            width: 100%;
+            height: 100%;
+            line-height: 100px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .z-pic-list .col-ld-2 .z-upload-btn i {
+            font-size: 20px;
+        }
+
+        .z-pic-list .col-ld-2 img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .z-pic-list .col-ld-2 .z-del-pic {
+            width: 80%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            vertical-align: middle;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            cursor: pointer;
+        }
+
+        .z-pic-list .col-ld-2:hover .z-del-pic {
+            display: block;
+        }
+
+        .z-savePicName,
+        .z-cancelName {
+            /*display: none;*/
+        }
+
+        @media only screen and (max-width: 768px) {
+            .gallery img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .z-pic-list .col-ld-2 {
+                height: 200px;
+            }
+
+            .z-pic-list .col-ld-2 img {
+                height: 200px;
+            }
+
+            .z-pic-list .col-ld-2 .z-upload-btn {
+                line-height: 200px;
+            }
+
+            .z-pic-list .col-ld-2 .z-del-pic {
+                /*width: calc(100%-15);*/
+                width: calc(100% - 30px);
+                width: -webkit-calc(100% - 30px);
+                width: -moz-calc(100% - 30px);
+                bottom: 0;
+                left: 15px;
+                cursor: pointer;
+            }
+        }
+
+
+
+        .z-money-label {
+            width: 10%!important;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 60px;
+        }
+
+        .z-design-title {
+            width: 100%;
+            text-align: center;
+        }
+
+        .z-design-title .navy-bg {
+            padding: 0 3px;
+            border-radius: 50%;
+        }
+
+        .gallery {
+            position: relative;
+        }
+
+        .gallery .z-picture-num {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            width: 50%;
+            height: 20px;
+            color: #fff;
+        }
+        /*设计出图 end*/
     </style>
 
     <div class="wrapper wrapper-content">
@@ -324,9 +510,11 @@
                                 </div>
 
                                 <div class="vertical-timeline-content">
-                                    <h3 class="z-green fr">家装</h3>
-                                    <h4>确认意向</h4>
-                                    <p><span class="z-margin-right">2016-09-21 12:34</span>操作人</p>
+                                    <div class="clearfix">
+                                        <h3 class="z-green fr">家装</h3>
+                                        <h4>确认意向</h4>
+                                    </div>
+                                    <p class="text-muted"><span class="z-margin-right">2016-09-21 12:34</span>操作人</p>
                                 </div>
                             </div>
                             <div class="vertical-timeline-block">
@@ -335,34 +523,88 @@
                                 </div>
                                 <div class="vertical-timeline-content">
                                     <div class="clearfix">
-                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal3">确认支付</button>
-                                    <h4>支付定金</h4>
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal3">确认支付</button>
+                                        <h4>支付定金</h4>
                                     </div>
-                                    <p>上一年的销售业绩发布会。总结产品营销和销售趋势及销售的现状。 </p>
-                                    <a href="#" class="btn btn-sm btn-primary"> 更多信息</a>
-                                    <span class="vertical-date">
-                                        今天 <br>
-                                        <small>2月3日</small>
-                                    </span>
+                                    <p><span class="z-green "><b>1000</b></span> 元 <span class="m-l-sm m-r-sm">现金</span> 2016-09-21</p>
+                                    <p>备注备注备注备注备注备注备注备注备注备注</p>
+                                    <p class="text-muted"><span class="m-r-sm">2016-09-21 12:34</span>操作人</p>
+                                </div>
+                            </div>
+                            <div class="vertical-timeline-block">
+                                <div class="vertical-timeline-icon z-grey-bg">
+                                    <i class="fa fa-crop"></i>
+                                </div>
+                                <div class="vertical-timeline-content">
+                                    <div class="clearfix">
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal4">测量完成</button>
+                                        <h4>测量</h4>
+                                    </div>
+                                    <p>备注备注备注备注备注备注备注备注备注备注</p>
+                                    <p class="text-muted"><span class="m-r-sm">2016-09-21 12:34</span>操作人</p>
+                                </div>
+                            </div>
+                            <div class="vertical-timeline-block">
+                                <div class="vertical-timeline-icon z-grey-bg">
+                                    <i class="fa fa-crop"></i>
+                                </div>
+                                <div class="vertical-timeline-content">
+                                    <div class="clearfix">
+                                        <a href="javascript:;" class="btn btn-sm btn-primary z-beginUpload">设计图管理</a>
+                                        <h4>出图</h4>
+                                    </div>
+                                    <div class="row">
+                                        <!--设计方案（未选中）一-->
+                                        <div class="col-md-6 col-ld-6 col-sm-6">
+                                            <p class="z-design-title">
+                                                <span class="navy-bg"><i class="fa fa-check"></i></span> 设计图1
+                                            </p>
+                                            <div class="lightBoxGallery gallery">
+                                                <div>
+                                                    <a href="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg" data-gallery=""><img src="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg"></a>
+                                                    <a class="hidden" href="http://o7ej9iew1.bkt.clouddn.com/test/72007b43c0ebf6314b926a6a8baefe68.jpg" data-gallery=""><img src="http://o7ej9iew1.bkt.clouddn.com/test/72007b43c0ebf6314b926a6a8baefe68.jpg"></a>
+                                                </div>
+                                                <div class="z-picture-num">2张</div>
+                                                <div id="blueimp-gallery" class="blueimp-gallery">
+                                                    <div class="slides"></div>
+                                                    <h3 class="title"></h3>
+                                                    <a class="prev">‹</a>
+                                                    <a class="next">›</a>
+                                                    <a class="close">×</a>
+                                                    <a class="play-pause"></a>
+                                                    <ol class="indicator"></ol>
+                                                </div>
+                                            </div>
+                                            <small>2017-08-04 15:59</small>
+                                            <br>
+                                            <small>admin</small>
+                                        </div>
+                                        <!--设计方案（未选中）一-->
+                                        <div class="col-md-6 col-ld-6 col-sm-6">
+                                            <p class="z-design-title">
+                                                设计图2</p>
+                                            <div class="lightBoxGallery gallery">
+                                                <div>
+                                                    <a href="http://o7ej9iew1.bkt.clouddn.com/test/edcb1f590d31f0753c29fb8f1b76b6d5.jpg" data-gallery=""><img src="http://o7ej9iew1.bkt.clouddn.com/test/edcb1f590d31f0753c29fb8f1b76b6d5.jpg"></a>
+                                                </div>
+                                                <div class="z-picture-num">1张</div>
+                                                <div id="blueimp-gallery" class="blueimp-gallery">
+                                                    <div class="slides"></div>
+                                                    <h3 class="title"></h3>
+                                                    <a class="prev">‹</a>
+                                                    <a class="next">›</a>
+                                                    <a class="close">×</a>
+                                                    <a class="play-pause"></a>
+                                                    <ol class="indicator"></ol>
+                                                </div>
+                                            </div>
+                                            <small>2017-08-04 15:59</small>
+                                            <br>
+                                            <small>admin</small>
+                                        </div>
+                                    </div>
 
-                                </div>
-                            </div>
-                            <div class="vertical-timeline-block">
-                                <div class="vertical-timeline-icon z-grey-bg">
-                                    <i class="fa fa-crop"></i>
-                                </div>
-                                <div class="vertical-timeline-content">
-                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal4">测量完成</button>
-                                    <h4>测量</h4>
-                                </div>
-                            </div>
-                            <div class="vertical-timeline-block">
-                                <div class="vertical-timeline-icon z-grey-bg">
-                                    <i class="fa fa-crop"></i>
-                                </div>
-                                <div class="vertical-timeline-content">
-                                    <a href="#" class="btn btn-sm btn-primary">设计图管理</a>
-                                    <h4>出图</h4>
+
                                 </div>
                             </div>
                             <div class="vertical-timeline-block">
@@ -370,8 +612,32 @@
                                     <i class="fa fa-glass"></i>
                                 </div>
                                 <div class="vertical-timeline-content">
-                                    <a href="#" class="btn btn-sm btn-primary">签约管理</a>
-                                    <h4>签约</h4>
+                                    <div class="clearfix">
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal5">签约管理</button>
+                                        <h4>签约</h4>
+                                    </div>
+                                    <p>签约日期：2016-09-21</p>
+                                    <p>备注备注备注备注备注备注备注备注备注备注</p>
+                                    <p class="text-muted"><span class="m-r-sm">2016-09-21 12:34</span>操作人</p>
+                                    <div class="row">
+                                        <div class="col-md-6 col-ld-6 col-sm-6">
+                                            <div class="lightBoxGallery gallery">
+                                                <div>
+                                                    <a href="http://o7ej9iew1.bkt.clouddn.com/test/edcb1f590d31f0753c29fb8f1b76b6d5.jpg" data-gallery=""><img src="http://o7ej9iew1.bkt.clouddn.com/test/edcb1f590d31f0753c29fb8f1b76b6d5.jpg"></a>
+                                                </div>
+                                                <div class="z-picture-num">1张</div>
+                                                <div id="blueimp-gallery" class="blueimp-gallery">
+                                                    <div class="slides"></div>
+                                                    <h3 class="title"></h3>
+                                                    <a class="prev">‹</a>
+                                                    <a class="next">›</a>
+                                                    <a class="close">×</a>
+                                                    <a class="play-pause"></a>
+                                                    <ol class="indicator"></ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -727,7 +993,6 @@
         </div>
     </div>
     <!--/支付定金弹框-->
-
     <!--测量弹框-->
     <div class="modal inmodal fade tk-box" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -741,7 +1006,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">备注：</label>
                             <div class="col-sm-7 no-padding">
-                                <textarea class="form-control"></textarea>
+                                <textarea class="form-control" style="height:150px"></textarea>
                             </div>
                         </div>
                     </form>
@@ -754,9 +1019,114 @@
         </div>
     </div>
     <!--/测量弹框-->
+    <!--设计图管理start-->
+    <div class="z-design-bg">
+        <div class="z-upload-bg">
+            <button type="button" class="btn btn-w-m btn-primary z-addNew">新建图册</button>
+            <span class="z-img-limit">只允许上传.jpg .png .gif图片文件，单个图片最大5M</span>
+            <i class="fa fa-times z-closeAlbum"></i>
+            <div class="z-photo-album z-bg-white ibox-title">
+                <div class="z-albun-tool">
+                    <input type="text" class="z-albun-name" id="album-name-1" placeholder="请输入相册名" maxlength="10" value="设计图1">
+                    <button type="button" class="btn btn-primary btn-sm z-savePicName" onclick="savePicName(this)">保存</button>
+                    <button type="button" class="btn btn-primary btn-sm z-cancelName" onclick="cancelName(this)">取消</button>
+                    <i class="fa fa-trash" onclick="delPiciAlbum(this)"></i>
+                    <i class="fa fa-edit" onclick="editPicNmae(this)"></i>
+                    <label><input type="radio" value="1" name="pic">选定此设计</label>
+                </div>
+                <div class="z-pic-list">
+                    <div class="col-md-2 col-ld-2 col-sm-2">
+                        <div class="z-upload-btn" onclick="uploadPic('fileInputPicker')">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                    </div>
+                    <input type="file" id="fileInputPicker" accept=".gif,.jpeg,.jpg,.png" name="file" style="display: none;">
+                </div>
+                <input type="hidden" id="uploadedImgs" class="uploadedImgs" value="">
+                <input type="hidden" id="uploadedAlbum" class="uploadAlbumIds" value="">
+            </div>
+
+            <div class="col-sm-12" style="text-align:right;" id="saveAlbumButnLocation">
+                <button type="button" decorate-id="444329" class="btn btn-w-m btn-primary" id="save-album-btn">保存</button>
+            </div>
+        </div>
+    </div>
+    <!--/设计图管理end-->
+    <!--签约管理弹框-->
+    <div class="modal inmodal fade tk-box" id="myModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">签约管理</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal m-t" id="commentForm3">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"><span class="text-danger">*</span>签约套餐：</label>
+                            <div class="col-sm-7 no-padding">
+                                <select class="form-control">
+                                    <option value="">请选择套餐</option>
+                                    <option value="">套餐1</option>
+                                    <option value="">套餐2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"><span class="text-danger">*</span>签约日期：</label>
+                            <div class="col-sm-7 no-padding">
+                                <input readonly class="form-control layer-date laydate-icon" id="hello1" style="max-width:100%">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"><span class="text-danger">*</span>总金额：</label>
+                            <div class="col-sm-7 no-padding form-inline">
+                                <div class="input-group" style="width:100%">
+                                    <input type="number" class="form-control">
+                                    <span class="input-group-addon">元</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"><span class="text-danger">*</span>支付方式：</label>
+                            <div class="col-sm-7 no-padding">
+                                <select class="form-control">
+                                    <option value="">现金</option>
+                                    <option value="">POS机</option>
+                                    <option value="">微信支付</option>
+                                    <option value="">支付宝</option>
+                                    <option value="">其他</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">备注：</label>
+                            <div class="col-sm-7 no-padding">
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-7 no-padding">
+                                <div id="ajaxUpload">点击上传图片</div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/签约管理弹框-->
 
     <script src="js/plugins/iCheck/icheck.min.js"></script>
     <script src="js/plugins/layer/laydate/laydate.js"></script>
+    <script src="js/plugins/blueimp/jquery.blueimp-gallery.min.js"></script>
 
     <!-- jQuery Validation plugin javascript-->
     <script src="js/plugins/validate/jquery.validate.min.js"></script>
@@ -776,6 +1146,224 @@
                 format: "YYYY-MM-DD hh:mm:ss"
             });
         });
+
+        /**************************************************设计图管理部分start**************************************************/
+        var picname;
+        //打开设计图管理
+        $(".z-beginUpload").click(function () {
+            $(".z-design-bg").show();
+        });
+        //关闭相册
+        $(".z-closeAlbum").click(function () {
+            $(".z-design-bg").hide();
+            window.location.reload();
+        });
+        //点击修改相册名
+        function editPicNmae(t) {
+            picname = $(t).parent().children(".z-albun-name").val();
+            $(t).parent().children(".z-albun-name").removeAttr("disabled");
+            $(t).parent().children(".z-savePicName").show();
+            $(t).parent().children(".z-cancelName").show();
+        }
+        ;
+        //相册名保存
+        function savePicName(t) {
+            var newname = $(t).parent().children(".z-albun-name").val();  //获取新的相册名
+            if (newname == "") {
+                swal({ confirmButtonText: "关闭", confirmButtonColor: "#1ab394", title: "相册名不能为空", type: "warning" });
+                return false;
+            }
+            $(t).parent().children(".z-albun-name").attr("disabled", "disabled");
+
+            $(t).parent().children(".z-savePicName").hide();
+            $(t).parent().children(".z-cancelName").hide();
+        }
+        ;
+        //相册名取消修改
+        function cancelName(t) {
+            var newname = $(t).parent().children(".z-albun-name").val();  //获取新的相册名
+
+            if (newname == "") {
+                swal({ confirmButtonText: "关闭", confirmButtonColor: "#1ab394", title: "相册名不能为空", type: "warning" });
+                return false;
+            }
+            $(t).parent().children(".z-albun-name").attr("disabled", "disabled");
+            $(t).parent().children(".z-savePicName").hide();
+            $(t).parent().children(".z-cancelName").hide();
+            $(t).parent().children(".z-albun-name").val(newname); //恢复原相册名
+        }
+        ;
+        //删除图片
+        function delPic(t) {
+            var tmpPath = "http://o7ej9iew1.bkt.clouddn.com/";
+            var imgpath = $(t).parent().find("img").attr("src");
+            var allImgsPath = $(t).parent().parent().parent().find(".uploadedImgs").val();
+            var allImgsArr = allImgsPath.split(',');
+            var newImg = '';
+            $.each(allImgsArr, function (i, n) {
+                if (n.length > 0) {
+                    var tmpN = tmpPath + n;
+                    if (imgpath != tmpN) {
+                        newImg += n + ',';
+                    }
+                }
+            });
+            $(t).parent().parent().parent().find(".uploadedImgs").val(newImg);
+            $(t).parent().remove();
+        }
+        //删除相册
+        function delPiciAlbum(t) {
+            $(t).parents(".z-photo-album").remove();  //移除相册
+        }
+        ;
+
+        //新建相册
+        $(".z-addNew").click(function () {
+            var albumNum = $(".z-photo-album").length;
+            if (albumNum >= 10) {
+                swal({ confirmButtonText: "关闭", confirmButtonColor: "#1ab394", title: "最多可添加10个相册", type: "warning" });
+                return false;
+            }
+            var newpic = '<div class="z-photo-album z-bg-white ibox-title">' +
+                '<div class="z-albun-tool">' +
+                ' <input type="text" class="z-albun-name" id="album-name-' + parseInt(albumNum + 1) + '"  placeholder="请输入相册名" maxlength="10" value="设计图' + parseInt(albumNum + 1) + '"> ' +
+                ' <button type="button" class="btn btn-primary btn-sm z-savePicName" onclick="savePicName(this)">保存</button>' +
+                ' <button type="button" class="btn btn-primary btn-sm z-cancelName" onclick="cancelName(this)">取消</button> ' +
+                '<i class="fa fa-trash" onclick="delPiciAlbum(this)"></i> ' +
+                '<i class="fa fa-edit" onclick="editPicNmae(this)"></i>' +
+                '<label><input type="radio" value="' + parseInt(albumNum + 1) + '" name="pic">选定此设计</label>' +
+                ' </div> ' +
+                '<div class="z-pic-list">' +
+                ' <div class="col-md-2 col-ld-2 col-sm-2"> ' +
+                '<div class="z-upload-btn" onclick=uploadPic("fileInputPicker' + albumNum + '","' + albumNum + '")> <i class="fa fa-plus"></i> </div> ' +
+                '</div> ' +
+                '<input type="file" id="fileInputPicker' + albumNum + '" name="file" accept=".gif,.jpeg,.jpg,.png" style="display: none;">' +
+                '<input type="hidden" id="uploadedImgs' + albumNum + '" class="uploadedImgs" value="">'
+            '</div>' +
+                '<input type="hidden" id="uploadedImgs' + albumNum + '"  class="uploadedImgs" value="">' +
+                '<input type="hidden" id="uploadedAlbum' + albumNum + '" class="uploadAlbumIds" value="">' +
+                ' </div>';
+            //        $(".z-upload-bg").append(newpic)
+            $("#saveAlbumButnLocation").before(newpic);
+        });
+
+        // 判断是否为IE浏览器
+        var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
+
+        function uploadPic(t, num) {
+            var inputFile = $("#" + t);
+            inputFile.trigger("click");
+
+            var form_str = '';
+            if (num) {
+                form_str = '<form id="myupload' + num + '" action="/index.php?r=upload%2Fbatch" method="post" enctype="multipart/form-data"></form>';
+                var hasUploadImgs = $("#uploadedImgs" + num).val();
+            } else {
+                form_str = '<form id="myupload" action="/index.php?r=upload%2Fbatch" method="post" enctype="multipart/form-data"></form>';
+                var hasUploadImgs = $("#uploadedImgs").val();
+            }
+            if (inputFile.parents("form").length == 0) {
+                inputFile.wrap(form_str);
+            }
+
+            inputFile.unbind('change').bind('change', function () {
+                //前端图片大小验证
+                var fileSize = 0;
+                if (isIE && !this.files) {
+                    var filePath = this.value;
+                    var fileSystem = new ActiveXObject("Scripting.FileSystemObject");
+                    var file = fileSystem.GetFile(filePath);
+                    fileSize = file.Size;    // 文件大小，单位：b
+                } else {    // 非IE浏览器
+                    fileSize = this.files[0].size;
+                }
+                var size = fileSize / 1024 / 1024;
+                if (size > 5) {
+                    swal({ confirmButtonText: "关闭", confirmButtonColor: "#1ab394", title: "图片不能超过5M,请重新上传", type: "warning" });
+                    inputFile.val("");
+                    return false
+                }
+
+                //图片大小验证通过，传给php
+                var numStr = '';
+                if (num) {
+                    numStr = num;
+                }
+                $("#myupload" + numStr).ajaxSubmit({
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.status == 0) {
+                            //上传成功
+                            var newimg;
+                            newimg = '<div class="col-md-2 col-ld-2 col-sm-2">' +
+                                ' <img src="http://o7ej9iew1.bkt.clouddn.com/' + result.data.key + '">' +
+                                ' <div class="z-del-pic" onclick="delPic(this)">删除</div>' +
+                                ' </div>';
+                            inputFile.closest('.z-pic-list').prepend(newimg);
+                            hasUploadImgs += result.data.key + ",";
+                            $("#uploadedImgs" + numStr).val(hasUploadImgs);
+                            inputFile.unwrap();
+                        } else {
+                            //上传失败
+                            inputFile.unwrap();
+                            swal({ confirmButtonText: "关闭", confirmButtonColor: "#1ab394", title: result.info, type: "warning" });
+
+                        }
+                    }, error: function (data) {
+                        inputFile.unwrap();
+                        swal({ confirmButtonText: "关闭", confirmButtonColor: "#1ab394", title: "上传出错，请重试！", type: "warning" });
+                    }
+                });
+            });
+        }
+
+        //保存设计图
+        $("#save-album-btn").on("click", function () {
+            var decorate_id = $(this).attr("decorate-id");
+            var album_checked = $("input[name='pic']:checked").val();
+            var album_name = '';
+            var has_uploaded_imgs = '';
+            var album_ids = '';
+            var data_button_id = $(".z-beginUpload").attr("data_button_id");
+            $('[class="z-albun-name"]').each(function () {
+                album_name += $(this).val() + '|';
+            });
+            $('[class="uploadedImgs"]').each(function () {
+                has_uploaded_imgs += $(this).val() + '|';
+            });
+            $('[class="uploadAlbumIds"]').each(function () {
+                album_ids += $(this).val() + '|';
+            });
+            //保存设计图
+            $.ajax({
+                type: 'post',
+                url: "/index.php?r=customer%2Fdesign",
+                data: {
+                    'decorate_id': decorate_id,
+                    'album_checked': album_checked,
+                    'album_name': album_name,
+                    'has_uploaded_imgs': has_uploaded_imgs,
+                    'album_ids': album_ids,
+                    'data_button_id': data_button_id,
+                },
+                error: function () {
+                    swal({ confirmButtonText: "关闭", confirmButtonColor: "#1ab394", title: "请求失败，请重试", type: "warning" });
+                    window.location.reload();
+                },
+                success: function (data) {
+                    if (data.status == 0) {
+                        swal({ confirmButtonText: "关闭", confirmButtonColor: "#1ab394", title: data.info, type: "success" }, function () {
+                            window.location.reload();
+                        });
+                    } else {
+                        swal({ confirmButtonText: "关闭", confirmButtonColor: "#1ab394", title: data.info, type: "warning" }, function () {
+                            window.location.reload();
+                        });
+                    }
+                }
+            });
+        });
+        /**************************************************设计图管理部分end**************************************************/
 
         //验证
         $().ready(function () {

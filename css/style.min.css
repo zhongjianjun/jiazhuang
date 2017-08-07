@@ -1368,3 +1368,6 @@ body.skin-3{background:#3e2c42}
 .fl{float:left}
 .fr{float:right}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+#ajaxUpload{border:1px dashed #666;width: 100px;height:100px;background-color: #d6d6d6;border-radius: 4px;cursor: pointer;line-height: 100px;text-align: center;background-size: cover;}
+#ajaxUpload:hover{border-color: #333}
