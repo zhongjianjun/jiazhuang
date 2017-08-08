@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>筑家易家装CRM系统</title>
+    <meta name="keywords" content="筑家易家装CRM系统">
+    <meta name="description" content="筑家易家装CRM系统">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css" rel="stylesheet">
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--导航-->
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <!--滚动条-->
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!--经典模块化前端框架-->
+    <script src="js/plugins/layer/layer.min.js"></script>
+    <!-- 自定义js-->
+    <script src="js/hplus.min.js"></script>
+    <script src="js/contabs.min.js"></script>
+
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg">
+
+    <!--子页面-->
+    <link href="css/plugins/blueimp/css/blueimp-gallery.min.css" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+    <style>
+        .pull-right .btn {
+            position: relative;
+            top: -6px;
+            margin-bottom: 0
+        }
+
+        .z-bg-grey {
+            background-color: rgba(242, 242, 242, 1);
+        }
+
+        .z-minheight-217 {
+            min-height: 217px;
+        }
+
+        .z-padding-10 {
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .z-titlt-img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .z-peopleImg {
+            width: 100%;
+            height: 75px;
+        }
+
+        .left-model {
+            float: left;
+            width: 100px;
+            text-align: center;
+        }
+
+        .right-model {
+            float: left;
+            width: calc(100% - 100px);
+            width: -webkit-calc(100% - 100px);
+        }
+
+        .right-model p:nth-of-type(1) span:nth-last-child(1) {
+            float: right;
+        }
+
+        .col-sm-12 p:nth-of-type(1) {
+            margin-top: 10px;
+            clear: both;
+        }
+
+        .z-fl-left {
+            float: left;
+        }
+
+        .z-fl-right {
+            float: right;
+        }
+
+        .z-margin-right {
+            margin-right: 10px;
+        }
+
+        .z-bt-1 {
+            border-bottom: 1px solid #e5e6e7;
+        }
+
+        .z-padding-10 {
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .z-record-container {
+            width: 100%;
+            position: relative;
+            padding: 0 10px 0 20px;
+        }
+
+        .z-marginbttom-10 {
+            margin-bottom: 10px;
+        }
+
+        .z-circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #1ab394;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .z-line {
+            width: 1px;
+            height: 100%;
+            background: #1ab394;
+            position: absolute;
+            top: 10px;
+            left: 5px;
+        }
+
+        .z-green {
+            color: #1ab394;
+        }
+
+        .right-model p:nth-of-type(1) span:nth-of-type(1) {
+            margin-right: 20px;
+        }
+
+        .z-grey-bg {
+            background-color: grey;
+            color: #fff;
+        }
+
+        .fancybox img {
+            width: 49%
+        }
+        /*设计出图*/
+
+        .z-design-bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+        }
+
+        .z-upload-bg {
+            width: 70%;
+            height: 500px;
+            overflow: scroll;
+            margin: 100px auto 0 auto;
+            background: #fff;
+            border-radius: 6px;
+            padding: 8px;
+            position: relative;
+        }
+
+        .z-upload-bg .fa-times {
+            padding: 5px;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+        }
+
+        .z-photo-album {
+            margin-top: 10px;
+            padding: 0;
+            clear: both;
+        }
+
+        .z-albun-tool {
+            width: 100%;
+            height: 50px;
+            vertical-align: middle;
+            padding: 10px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .z-albun-name {
+            width: 140px;
+            height: 25px;
+        }
+
+        .z-albun-name[disabled="disabled"] {
+            border: none;
+            background: #fff;
+        }
+
+        .z-albun-tool .fa {
+            padding: 5px;
+            margin-left: 5px;
+            float: right;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .z-albun-tool label {
+            float: right;
+        }
+
+        .z-pic-list .col-ld-2 {
+            height: 100px;
+            position: relative;
+            margin-bottom: 10px;
+            /*padding: 10%;*/
+        }
+
+        .z-pic-list .col-ld-2 .z-upload-btn {
+            border: 1px solid #ccc;
+            width: 100%;
+            height: 100%;
+            line-height: 100px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .z-pic-list .col-ld-2 .z-upload-btn i {
+            font-size: 20px;
+        }
+
+        .z-pic-list .col-ld-2 img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .z-pic-list .col-ld-2 .z-del-pic {
+            width: 80%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            vertical-align: middle;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            cursor: pointer;
+        }
+
+        .z-pic-list .col-ld-2:hover .z-del-pic {
+            display: block;
+        }
+
+        .z-savePicName,
+        .z-cancelName {
+            /*display: none;*/
+        }
+
+        @media only screen and (max-width: 768px) {
+            .gallery img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .z-pic-list .col-ld-2 {
+                height: 200px;
+            }
+
+            .z-pic-list .col-ld-2 img {
+                height: 200px;
+            }
+
+            .z-pic-list .col-ld-2 .z-upload-btn {
+                line-height: 200px;
+            }
+
+            .z-pic-list .col-ld-2 .z-del-pic {
+                /*width: calc(100%-15);*/
+                width: calc(100% - 30px);
+                width: -webkit-calc(100% - 30px);
+                width: -moz-calc(100% - 30px);
+                bottom: 0;
+                left: 15px;
+                cursor: pointer;
+            }
+        }
+
+
+
+        .z-money-label {
+            width: 10%!important;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 60px;
+        }
+
+        .z-design-title {
+            width: 100%;
+            text-align: center;
+        }
+
+        .z-design-title .navy-bg {
+            padding: 0 3px;
+            border-radius: 50%;
+        }
+
+        .gallery {
+            position: relative;
+        }
+
+        .gallery .z-picture-num {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            width: 50%;
+            height: 20px;
+            color: #fff;
+        }
+        /*设计出图 end*/
+    </style>
+
+    <div class="wrapper wrapper-content">
+        <div class="row wrapper page-heading">
+            <div class="col-sm-12">
+                <a href="订单管理（家居）.html">订单管理（家居）</a> > 订单详情（家居）
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1"><i class="fa fa-hand-o-right"></i> 分配</button>
+                        </div>
+                        <h5>订单信息</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-md-8 col-ld-8 col-sm-8 z-padding-10">
+                                <div class="col-sm-12 z-bg-grey z-padding-10 z-minheight-217">
+                                    <div class="z-peopleImg">
+                                        <div class="left-model">
+                                            <img alt="image" class="img-circle m-t-xs z-titlt-img" src="img/unknow.png">
+                                        </div>
+                                        <div class="right-model">
+                                            <p><span>倩倩</span><span>杭州</span></p>
+                                            <h4 class="z-green">18248467970</h4>
+                                        </div>
+                                    </div>
+                                    <p><span>订单编号：</span><span class="z-grey">DD233453223626</span></p>
+                                    <p><span>签约时间：</span><span class="z-grey">2016-09-21 13:23</span></p>
+                                    <p><span>商&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品 ：</span><span class="z-green">999元套餐</span></p>
+                                    <p><span>金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额 ：</span><span class="z-green">12364.56</span>元</p>
+                                    <p><span>支付方式：</span><span class="z-grey">现金</span></p>
+                                    <p><span>新居地址：</span><span class="z-grey">杭州市-余杭区-余杭街道-998号</span></p>
+                                    <p><span>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注 ：</span><span class="z-grey">备注备注备注备注</span></p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-ld-4 col-sm-4 z-padding-10">
+                                <div class="col-sm-12 z-bg-grey z-padding-10 z-minheight-217" style="min-height:301px;">
+                                    <h4 class="z-green z-margin-10">客户跟进人</h4>
+                                    <p><span>客服部：</span><span class="z-grey">林林</span></p>
+                                    <p><span>仓储部：</span><span class="z-grey">吉吉</span></p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <h4 class="m-l-sm">商品详情</h4>
+                                <div class="lightBoxGallery">
+                                    <a class="col-sm-4 m-b-lg message-content" href="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg"
+                                        data-gallery="">
+                                        <img src="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg" width="100%">
+                                        <p class="ultra-skin m-t-sm">商品名称</p>
+                                    </a>
+                                    <a class="col-sm-4 m-b-lg message-content" href="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg"
+                                        data-gallery="">
+                                        <img src="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg" width="100%">
+                                        <p class="ultra-skin m-t-sm">商品名称</p>
+                                    </a>
+                                    <a class="col-sm-4 m-b-lg message-content" href="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg"
+                                        data-gallery="">
+                                        <img src="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg" width="100%">
+                                        <p class="ultra-skin m-t-sm">商品名称</p>
+                                    </a>
+                                    <a class="col-sm-4 m-b-lg message-content" href="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg"
+                                        data-gallery="">
+                                        <img src="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg" width="100%">
+                                        <p class="ultra-skin m-t-sm">商品名称</p>
+                                    </a>
+                                    <a class="col-sm-4 m-b-lg message-content" href="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg"
+                                        data-gallery="">
+                                        <img src="http://o7ej9iew1.bkt.clouddn.com/test/3ab8e1f0dfe53baa619cef03a1831c5b.jpg" width="100%">
+                                        <p class="ultra-skin m-t-sm">商品名称</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>客户状态</h5>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div id="vertical-timeline" class="vertical-container dark-timeline">
+
+                            <div class="vertical-timeline-block">
+                                <div class="vertical-timeline-icon navy-bg">
+                                    <i class="fa fa-check"></i>
+                                </div>
+
+                                <div class="vertical-timeline-content">
+                                    <div class="clearfix">
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal2">发货</button>
+                                        <h4>待发货</h4>
+                                    </div>
+                                    <p class="text-muted"><span class="z-margin-right">2016-09-21 12:34</span>操作人</p>
+                                </div>
+                            </div>
+                            <div class="vertical-timeline-block">
+                                <div class="vertical-timeline-icon z-grey-bg">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <div class="vertical-timeline-content">
+                                    <div class="clearfix">
+                                        <button type="button" class="btn btn-sm btn-primary demo1">确认完成</button>
+                                        <h4>已发货</h4>
+                                    </div>
+                                    <p>
+                                        <div>快递公司：申通</div>
+                                        <div>快递单号：201709892312</div>
+                                        <div class="text-muted"><span class="m-r-sm">2016-09-21 12:34</span>操作人</div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="vertical-timeline-block">
+                                <div class="vertical-timeline-icon z-grey-bg">
+                                    <i class="fa fa-rmb"></i>
+                                </div>
+                                <div class="vertical-timeline-content">
+                                    <div class="clearfix">
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal3">预约安装</button>
+                                        <h4>已收货</h4>
+                                    </div>
+                                    <p class="text-muted"><span class="m-r-sm">2016-09-21 12:34</span>操作人：用户/张三</p>
+                                </div>
+                            </div>
+                            <div class="vertical-timeline-block">
+                                <div class="vertical-timeline-icon z-grey-bg">
+                                    <i class="fa fa-crop"></i>
+                                </div>
+                                <div class="vertical-timeline-content">
+                                    <div class="clearfix">
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal4">分配安装师傅</button>
+                                        <h4>已预约</h4>
+                                    </div>
+                                    <p>
+                                        <div>预约安装时间：2017-08-10  12：21</div>
+                                        <div class="text-muted"><span class="m-r-sm">2016-09-21 12:34</span>操作人</div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="vertical-timeline-block">
+                                <div class="vertical-timeline-icon z-grey-bg">
+                                    <i class="fa fa-glass"></i>
+                                </div>
+                                <div class="vertical-timeline-content">
+                                    <div class="clearfix">
+                                        <button type="button" class="btn btn-sm btn-primary demo2">确认完成</button>
+                                        <h4>已分配</h4>
+                                    </div>
+                                    <p>
+                                        <div>安装师傅：张三</div>
+                                        <div>联系电话：19878787676</div>
+                                        <div class="text-muted"><span class="m-r-sm">2016-09-21 12:34</span>操作人</div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="vertical-timeline-block">
+                                <div class="vertical-timeline-icon z-grey-bg">
+                                    <i class="fa fa-crop"></i>
+                                </div>
+                                <div class="vertical-timeline-content">
+                                    <div class="clearfix">
+                                        <h4>已完成</h4>
+                                    </div>
+                                    <p>
+                                        <div>后台确认完成</div>
+                                        <div class="text-muted"><span class="m-r-sm">2016-09-21 12:34</span>操作人：用户/张三</div>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--相册弹框-->
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+    </div>
+    <!--/相册弹框-->
+    <!--分配弹框-->
+    <div class="modal inmodal fade tk-box" id="myModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">客户分配</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal m-t" id="commentForm">
+                        <div class="row form-group">
+                            <label class="col-sm-3 control-label">分配给：</label>
+                            <div class="col-sm-9 no-padding form-inline">
+                                <select class="form-control">
+                                    <option value="">客户组</option>
+                                    <option value="">客户组2</option>
+                                </select>
+                                <select class="form-control m-l-xs">
+                                    <option value="">人</option>
+                                    <option value="">人2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-9 no-padding form-inline">
+                                <a id="add_distribution" href="javascript:;">新增</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/分配弹框-->
+    <!--发货弹框-->
+    <div class="modal inmodal fade tk-box" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">设置为发货</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal m-t" id="commentForm">
+
+                        <div class="row form-group">
+                            <label class="col-sm-3 control-label">快递公司：</label>
+                            <div class="col-sm-6 no-padding">
+                                <select class="form-control">
+                                    <option value="">请选择</option>
+                                    <option value="">申通</option>
+                                    <option value="">圆通</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-sm-3 control-label">快递单号：</label>
+                            <div class="col-sm-6 no-padding">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-6 no-padding form-inline">
+                                <a id="add_distribution_2" href="javascript:;">新增</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/发货弹框-->
+    <!--预约安装弹框-->
+    <div class="modal inmodal fade tk-box" id="myModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">预约安装</h4>
+                </div>
+                <div class="modal-body" style="min-height:200px">
+                    <form class="form-horizontal m-t" id="commentForm3">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">安装时间：</label>
+                            <div class="col-sm-7 no-padding">
+                                <input readonly class="form-control layer-date laydate-icon" id="hello1" style="max-width:100%">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/预约安装弹框-->
+    <!--分配安装师傅弹框-->
+    <div class="modal inmodal fade tk-box" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">分配安装师傅</h4>
+                </div>
+                <div class="modal-body" style="min-height:200px">
+                    <form class="form-horizontal m-t">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">安装师傅：</label>
+                            <div class="col-sm-5 no-padding">
+                                <input class="form-control" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">联系电话：</label>
+                            <div class="col-sm-5 no-padding">
+                                <input class="form-control" type="text" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/分配安装师傅弹框-->
+
+    <script src="js/plugins/blueimp/jquery.blueimp-gallery.min.js"></script>
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="js/plugins/layer/laydate/laydate.js"></script>
+
+    <script>
+        // 新增选择
+        $('#add_distribution').on('click', function () {
+
+            var html = '';
+            html += '<div class="row form-group addFormGroup">';
+            html += '<label class="col-sm-3 control-label"></label>';
+            html += '<div class="col-sm-9 no-padding form-inline">';
+            html += '<select class="form-control">';
+            html += '<option value="">客户组</option>';
+            html += '<option value="">客户组2</option>';
+            html += '</select>';
+            html += '<select class="form-control" style="margin-left:8px;">';
+            html += '<option value="">人</option>';
+            html += '<option value="">人2</option>';
+            html += '</select>';
+            html += '<a class="m-l-sm delete_distribution" href="javascript:;">删除</a>';
+            html += '</div>';
+            html += '</div>';
+
+            $(this).parents('.form-group').before(html);
+            //删除新增
+            $('.delete_distribution').on('click', function () {
+                $(this).parents('.addFormGroup').remove();
+            });
+
+        });
+
+        // 新增选择
+        $('#add_distribution_2').on('click', function () {
+
+            var html = '';
+
+            html += '<div class="row form-group addFormGroup">';
+            html += '<label class="col-sm-3 control-label">快递公司：</label>';
+            html += '<div class="col-sm-6 no-padding">';
+            html += '<select class="form-control">';
+            html += '<option value="">请选择</option>';
+            html += '<option value="">申通</option>';
+            html += '<option value="">圆通</option>';
+            html += '</select>';
+            html += '</div>';
+            html += '<div class="col-sm-3 no-padding"><p class="form-control-static"><a class="m-l-sm delete_distribution_2" href="javascript:;">删除</a></p></div>';
+            html += '</div>';
+            html += '<div class="row form-group addFormGroup">';
+            html += '<label class="col-sm-3 control-label">快递单号：</label>';
+            html += '<div class="col-sm-6 no-padding">';
+            html += '<input type="text" class="form-control" />';
+            html += '</div>';
+            html += '</div>';
+
+            $(this).parents('.form-group').before(html);
+            //删除新增
+            $('.delete_distribution_2').on('click', function () {
+                $(this).parents('.addFormGroup').next('.addFormGroup').remove();
+                $(this).parents('.addFormGroup').remove();
+            });
+
+        });
+        //已发货弹框
+        $(".demo1").click(function () {
+            swal({
+                title: "您确定要删除这条信息吗",
+                text: "删除后将无法恢复，请谨慎操作！",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "删除",
+                closeOnConfirm: false,
+                cancelButtonText: "让我再考虑一下…",
+            }, function () {
+                swal("删除成功！", "您已经永久删除了这条信息。", "success")
+            })
+        });
+        //已分配弹框
+        $(".demo2").click(function () {
+            swal({
+                title: "您确定要删除这条信息吗",
+                text: "删除后将无法恢复，请谨慎操作！",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "删除",
+                closeOnConfirm: false,
+                cancelButtonText: "让我再考虑一下…",
+            }, function () {
+                swal("删除成功！", "您已经永久删除了这条信息。", "success")
+            })
+        });
+
+        // layer-date 日期插件全局配置
+        $(".layer-date").on("click", function () {
+            laydate({
+                istime: true,
+                format: "YYYY-MM-DD hh:mm:ss"
+            });
+        });
+
+    </script>
+
+    <!--/子页面-->
+
+
+
+</body>
+
+</html>

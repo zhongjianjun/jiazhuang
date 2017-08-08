@@ -169,7 +169,7 @@
                                 <li class="active">
                                     <a data-toggle="tab" href="#tab-1" aria-expanded="true"> 客户信息</a>
                                 </li>
-                                <li class="">
+                                <li style="display:none">
                                     <a data-toggle="tab" href="#tab-2" aria-expanded="false">装修信息</a>
                                 </li>
                             </ul>
@@ -264,8 +264,8 @@
                                                     <div class="col-sm-8 no-padding">
                                                         <select class="form-control" name="client_types">
                                                         <option selected="" value="">请选择</option>
-                                                        <option value="3">家装</option>
-                                                        <option value="3">家居</option>
+                                                        <option value="1">家装</option>
+                                                        <option value="2">家居</option>
                                                     </select>
                                                     </div>
                                                 </div>
@@ -431,7 +431,14 @@
                 format: "YYYY-MM-DD hh:mm:ss"
             });
         });
-
+        $("select[name='client_types']").change(function(){
+            var _index = $(this).val();
+            if(_index == 1){
+                $(".nav-tabs li:last").show();
+            }else{
+                $(".nav-tabs li:last").hide();
+            }
+        });
         //验证
         $().ready(function () {
 
